@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ExpproComponent } from './exppro/exppro.component';
 import { ProjetsComponent } from './projets/projets.component';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProjetsComponent } from './projets/projets.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

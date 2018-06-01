@@ -3,131 +3,124 @@
     <img src="assets/lastskyphoenix.png" alt="Logo" id="logo">
   </div>
   <div class="col">
-    <h2>Nicolas Huchet</h2>
-    <h4>Développeur/Informaticien</h4>
+    <h2>{{document.infos.prenom}} {{document.infos.nom}}</h2>
+    <h4>{{document.infos.poste}}</h4>
     <p>
-      22 ans &mdash; Le Versoud &mdash; Permis B
+      <span>{{document.infos.age}} ans</span> &mdash; <span>{{document.infos.ville}}</span><span *ngIf="document.infos.permis"> &mdash; Permis B</span>
     </p>
     <div id="dlinks">
-      <a class="dlink" href="https://github.com/Nelgamix" placement="top" ngbTooltip="@Nelgamix">
-        <img src="assets/github.png" alt="Logo">
-        <div>
-          GitHub
-        </div>
-      </a>
-      <a class="dlink" href="https://www.linkedin.com/in/nicolas-huchet-82b268a8/" placement="top" ngbTooltip="Nicolas Huchet">
-        <img src="assets/linkedin.png" alt="Logo">
-        <div>
-          LinkedIn
-        </div>
-      </a>
-      <a class="dlink" href="mailto:contact@skysurf.ovh" placement="top" ngbTooltip="contact@skysurf.ovh">
-        <img src="assets/mail.ico" alt="Logo">
-        <div>
-          Mail
-        </div>
+      <a *ngFor="let l of document.infos.liens" class="dlink" [href]="l.url" placement="top" [ngbTooltip]="l.utilisateur">
+        <img [src]="l.image" alt="Logo {{l.nom}}">
+        <div>{{l.nom}}</div>
       </a>
     </div>
   </div>
   <div class="col-2" id="cv">
-    <a href="#" class="btn btn-success">CV</a>
-  </div>
-</div>
-
-<div class="categorie" id="bio">
-  <div class="row titre">
-    <div class="col">
-      <h3>Bio</h3>
-    </div>
-  </div>
-  <div class="row content">
-    <div class="col">
-      Lorem
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-success">CV</button>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="categorie" id="competences">
-  <div class="row titre">
-    <div class="col">
-      <h3>Compétences</h3>
+<div class="row categorie z-depth-1" id="bio">
+  <div class="col">
+    <div class="row titre">
+      <div class="col">
+        <h3>Bio</h3>
+      </div>
     </div>
-  </div>
-  <div class="row content">
-    <div class="col-4">
-      <h4>Languages</h4>
-      <p>
-        C &bull; C++ &bull; C# &bull; Java<br>
-        Lua &bull; Python &bull; Bash &bull; Shell <br>
-        HTML &bull; CSS &bull; JavaScript &bull; PHP
-      </p>
-    </div>
-    <div class="col-4">
-      <h4>Technologies</h4>
-      <p>
-        SCSS &bull; AngularJS &bull; Angular &bull; NodeJS <br>
-        SQL &bull; JavaFX &bull; QT <br>
-        Android
-      </p>
-    </div>
-    <div class="col-4">
-      <h4>Systèmes</h4>
-      <p>
-        Windows &bull; Linux <br>
-        Android
-      </p>
+    <div class="row content">
+      <div class="col">
+        <p *ngFor="let p of document.infos.bio">
+          {{p}}
+        </p>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="categorie" id="formation">
-  <div class="row titre">
-    <div class="col">
-      <h3>Formation</h3>
+<div class="row categorie z-depth-1" id="competences">
+  <div class="col">
+    <div class="row titre">
+      <div class="col">
+        <h3>Compétences</h3>
+      </div>
     </div>
-  </div>
-  <div class="row content">
-    <div class="col">
-      <table class="table table-borderless table-sm">
-        <tr>
-          <td>Master</td>
-          <td>M1 Informatique, M2GI</td>
-          <td>2017 - Présent</td>
-          <td>UGA, Grenoble</td>
-        </tr>
-        <tr>
-          <td>Licence, 3<sup>ème</sup> année</td>
-          <td>Informatique</td>
-          <td>2016 - 2017</td>
-          <td>UGA, Grenoble</td>
-        </tr>
-        <tr>
-          <td>DUT</td>
-          <td>Informatique</td>
-          <td>2014 - 2016</td>
-          <td>IUT 2, Grenoble</td>
-        </tr>
-      </table>
+    <div class="row content">
+
+      <div class="col" *ngFor="let c of document.infos.competences">
+        <h4>{{c.categorie}}</h4>
+        <div class="row">
+          <div class="col-auto description">
+            <div *ngFor="let d of c.domaines">{{d.domaine}}</div>
+          </div>
+          <div class="col content">
+            <div *ngFor="let d of c.domaines">
+              <ng-container *ngFor="let c of d.competences; let i = index">
+                <ng-container *ngIf="i > 0"> &bull; </ng-container>
+                <span>{{c}}</span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="categorie" id="centresinterets">
-  <div class="row titre">
-    <div class="col">
-      <h3>Centres d'intérêts</h3>
+<div class="row categorie z-depth-1" id="formation">
+  <div class="col">
+    <div class="row titre">
+      <div class="col">
+        <h3>Formation</h3>
+      </div>
+    </div>
+    <div class="row content">
+      <div class="col">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Formation</th>
+              <th>Domaine</th>
+              <th>Année.s</th>
+              <th>Lieu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let f of document.infos.formation">
+              <td>{{f.nom}}</td>
+              <td>{{f.domaine}}</td>
+              <td>{{f.debut.year()}} - {{f.fin.year()}}</td>
+              <td>{{f.lieu}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-  <div class="row content">
-    <div class="col">
-      <h5>Nouvelles technologies</h5>
-      <p>
-        Smartphones, Hardware, Systèmes embarqués & IOT
-      </p>
-      <h5>Sports</h5>
-      <p>
-        Football, VTT
-      </p>
+</div>
+
+<div class="row categorie z-depth-1" id="centresinterets">
+  <div class="col">
+    <div class="row titre">
+      <div class="col">
+        <h3>Centres d'intérêts</h3>
+      </div>
+    </div>
+    <div class="row content">
+      <div class="col">
+        <div *ngFor="let c of document.infos.ci">
+          <h5>{{c.nom}}</h5>
+          <div>
+            <ng-container *ngFor="let cn of c.items; let i = index">
+              <ng-container *ngIf="i > 0">, </ng-container>
+              <span>{{cn}}</span>
+            </ng-container>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

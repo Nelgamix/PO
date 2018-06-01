@@ -1,20 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark elegant-color">
+  <logo>
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/accueil" routerLinkActive="active">Accueil</a>
-        <a class="nav-item nav-link" routerLink="/exppro" routerLinkActive="active">Expérience pro</a>
-        <a class="nav-item nav-link" routerLink="/projets" routerLinkActive="active">Projets</a>
-        <a class="nav-item nav-link disabled" routerLink="/contact" routerLinkActive="active">Contact</a>
-      </div>
+  </logo>
+  <links>
+    <div class="navbar-nav">
+      <a class="nav-item nav-link waves-light" routerLink="/accueil" routerLinkActive="active" mdbWavesEffect>Accueil</a>
+      <a class="nav-item nav-link waves-light" routerLink="/exppro" routerLinkActive="active" mdbWavesEffect>Expérience pro</a>
+      <a class="nav-item nav-link waves-light" routerLink="/projets" routerLinkActive="active" mdbWavesEffect>Projets</a>
+      <a class="nav-item nav-link disabled waves-light" routerLink="/contact" routerLinkActive="active" mdbWavesEffect>Contact</a>
     </div>
-  </div>
-</nav>
+  </links>
+</mdb-navbar>
 
-<div class="container" id="content">
+<div class="container z-depth-1" id="content">
   <router-outlet></router-outlet>
 </div>
