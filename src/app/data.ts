@@ -13,19 +13,27 @@ export const poData: JSONDocument = {
         nom: 'GitHub',
         utilisateur: '@Nelgamix',
         url: 'https://github.com/Nelgamix',
-        image: 'assets/github.png'
+        image: 'assets/github.png',
+        cacher: false
       },
       {
         nom: 'LinkedIn',
         utilisateur: 'Nicolas Huchet',
         url: 'https://www.linkedin.com/in/nicolas-huchet-82b268a8/',
-        image: 'assets/linkedin.png'
+        image: 'assets/linkedin.png',
+        cacher: false
       },
       {
         nom: 'Mail',
         utilisateur: 'contact@skysurf.ovh',
         url: 'mailto:contact@skysurf.ovh',
-        image: 'assets/mail.ico'
+        image: 'assets/mail.ico',
+        cacher: true
+      },
+      {
+        nom: 'CV',
+        url: '#',
+        cacher: true
       }
     ],
     bio: [

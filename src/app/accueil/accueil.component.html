@@ -9,16 +9,20 @@
       <span>{{document.infos.age}} ans</span> &mdash; <span>{{document.infos.ville}}</span><span *ngIf="document.infos.permis"> &mdash; Permis B</span>
     </p>
     <div id="dlinks">
-      <a *ngFor="let l of document.infos.liens" class="dlink" [href]="l.url" placement="top" [ngbTooltip]="l.utilisateur">
-        <img [src]="l.image" alt="Logo {{l.nom}}">
-        <div>{{l.nom}}</div>
-      </a>
+      <ng-container *ngFor="let l of document.infos.liens">
+        <a *ngIf="!l.cacher" class="dlink" [href]="l.url" placement="top" [ngbTooltip]="l.utilisateur">
+          <img [src]="l.image" alt="Logo {{l.nom}}">
+          <div>{{l.nom}}</div>
+        </a>
+      </ng-container>
     </div>
   </div>
+
   <div class="col-2" id="cv">
     <div class="row">
       <div class="col">
-        <button type="button" class="btn btn-success">CV</button>
+        <button type="button" class="btn btn-success" *ngIf="document.infos.searchLien('CV'); let lien" (click)="open(lien.url)">CV</button>
+        <button type="button" class="btn btn-success" *ngIf="document.infos.searchLien('Mail'); let lien" (click)="open(lien.url)">EMAIL</button>
       </div>
     </div>
   </div>
@@ -84,7 +88,7 @@
             <tr>
               <th>Formation</th>
               <th>Domaine</th>
-              <th>Année.s</th>
+              <th>Années</th>
               <th>Lieu</th>
             </tr>
           </thead>

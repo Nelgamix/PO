@@ -70,9 +70,10 @@ interface JSONProjet {
 
 interface JSONLien {
   nom: string;
-  utilisateur: string;
+  utilisateur?: string;
   url: string;
-  image: string;
+  image?: string;
+  cacher?: boolean;
 }
 
 interface JSONContact {
@@ -129,6 +130,10 @@ class Infos {
   get age(): number {
     return moment.duration(moment().diff(moment(this.naissance))).years();
   }
+
+  searchLien(search: string): Lien {
+    return this.liens.filter(l => l.nom.toLowerCase() === search.toLowerCase())[0];
+  }
 }
 
 class CompetenceCategorie {
@@ -164,8 +169,8 @@ class CentreInteret {
 class Formation {
   nom: string;
   domaine: string;
-  debut: moment;
-  fin: moment;
+  debut: moment.Moment;
+  fin: moment.Moment;
   lieu: string;
   commentaires: string;
 
@@ -182,8 +187,8 @@ class Formation {
 class Experience {
   entreprise: string;
   poste: string;
-  debut: moment;
-  fin: moment;
+  debut: moment.Moment;
+  fin: moment.Moment;
   technologies: string[] = [];
   description: string;
 
@@ -199,8 +204,8 @@ class Experience {
 
 class Projet {
   nom: string;
-  debut: moment;
-  fin: moment;
+  debut: moment.Moment;
+  fin: moment.Moment;
   technologies: string[] = [];
   description: string;
 
@@ -218,12 +223,14 @@ class Lien {
   utilisateur: string;
   url: string;
   image: string;
+  cacher: boolean;
 
   constructor(json: JSONLien) {
     this.nom = json.nom;
-    this.utilisateur = json.utilisateur;
+    this.utilisateur = json.utilisateur || '';
     this.url = json.url;
-    this.image = json.image;
+    this.image = json.image || '';
+    this.cacher = json.cacher || false;
   }
 }
 
@@ -254,6 +261,10 @@ export class AccueilComponent implements OnInit {
 
   ngOnInit() {
     this.document = new Document(this.json);
+  }
+
+  open(url: string): void {
+    window.open(url, '_blank');
   }
 
 }
