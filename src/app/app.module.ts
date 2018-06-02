@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { ContactComponent } from './contact/contact.component';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -26,7 +25,6 @@ import { TechnologieDescriptionComponent } from './technologie-description/techn
     AppRoutingModule,
     BrowserModule,
     MomentModule,
-    NgbModule.forRoot(),
     MDBBootstrapModule.forRoot(),
     MarkdownModule.forRoot()
   ],
