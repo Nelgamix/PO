@@ -10,6 +10,7 @@ import {Document} from '../data-classes';
 export class ProjetsComponent {
   document: Document;
   projetTypes: ProjetType[];
+  searchFor = '';
 
   @ViewChild('photoZoom') public modalPhotoZoom;
   photo: string;

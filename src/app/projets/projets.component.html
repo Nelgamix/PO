@@ -1,5 +1,12 @@
+<form class="search">
+  <div class="md-form">
+    <input mdbInputDirective type="text" id="search" class="form-control" [mdbValidate]="false" [(ngModel)]="searchFor" name="search">
+    <label for="search">Rechercher</label>
+  </div>
+</form>
+
 <div class="wrapper">
-  <div class="row projet z-depth-1" *ngFor="let p of document.projets">
+  <div class="row projet z-depth-1" *ngFor="let p of document.projets | filterProjet:searchFor">
     <div class="col">
       <div class="row header">
         <div class="col">

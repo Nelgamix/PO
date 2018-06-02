@@ -11,6 +11,8 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {MarkdownModule} from 'ngx-markdown';
 import {MomentModule} from 'ngx-moment';
 import { TechnologieDescriptionComponent } from './technologie-description/technologie-description.component';
+import { FilterProjetPipe } from './filter-projet.pipe';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,11 +21,13 @@ import { TechnologieDescriptionComponent } from './technologie-description/techn
     AccueilComponent,
     ExpproComponent,
     ProjetsComponent,
-    TechnologieDescriptionComponent
+    TechnologieDescriptionComponent,
+    FilterProjetPipe
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
     MomentModule,
     MDBBootstrapModule.forRoot(),
     MarkdownModule.forRoot()
