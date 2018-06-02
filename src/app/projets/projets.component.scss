@@ -1,0 +1,68 @@
+.wrapper {
+  padding: 20px 0;
+}
+
+.projet {
+  background-color: aliceblue;
+  margin-bottom: 10px;
+
+  .header {
+    padding: 10px 20px;
+    background: linear-gradient(to bottom, #bbb1, #bbb2);
+    /*box-shadow: 0 4px 12px -6px grey;*/
+
+    .title {
+      font-family: 'Cinzel', sans-serif;
+      font-size: 28px;
+
+      .type {
+        font-family: 'Roboto', sans-serif;
+        margin-left: 20px;
+        background-color: goldenrod;
+        color: white;
+        font-size: 12px;
+        border-radius: 14px;
+        padding: 4px 15px;
+        vertical-align: middle;
+      }
+    }
+
+    .dates {
+
+    }
+
+    .technologies {
+      font-weight: 900;
+    }
+
+    .icones-technologies {
+      display: flex;
+      justify-content: flex-end;
+
+      img {
+        margin: 4px;
+        height: 32px;
+      }
+    }
+  }
+
+  .description {
+    padding: 10px 20px 10px 20px;
+
+    .images {
+      img {
+        width: 160px;
+        height: 90px;
+        margin: 0 8px;
+
+        &:hover {
+          cursor: zoom-in;
+        }
+      }
+    }
+
+    .liens {
+
+    }
+  }
+}

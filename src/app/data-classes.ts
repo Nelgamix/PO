@@ -26,9 +26,13 @@ export class Document {
     json.projets.forEach(p => this.projets.push(new Projet(p)));
     json.contacts.forEach(c => this.contacts.push(new Contact(c)));
   }
+
+  searchTechnologie(tech: string): Technologie {
+    return this.technologies.filter(t => t.nom === tech)[0];
+  }
 }
 
-class Infos {
+export class Infos {
   nom: string;
   prenom: string;
   image: string;
@@ -67,7 +71,7 @@ class Infos {
   }
 }
 
-class CompetenceCategorie {
+export class CompetenceCategorie {
   categorie: string;
   domaines: CompetenceDomaine[] = [];
 
@@ -77,7 +81,7 @@ class CompetenceCategorie {
   }
 }
 
-class CompetenceDomaine {
+export class CompetenceDomaine {
   domaine: string;
   competences: string[] = [];
 
@@ -87,7 +91,7 @@ class CompetenceDomaine {
   }
 }
 
-class CentreInteret {
+export class CentreInteret {
   nom: string;
   items: string[] = [];
 
@@ -97,7 +101,7 @@ class CentreInteret {
   }
 }
 
-class Formation {
+export class Formation {
   nom: string;
   domaine: string;
   debut: moment.Moment;
@@ -115,7 +119,7 @@ class Formation {
   }
 }
 
-class Technologie {
+export class Technologie {
   nom: string;
   version: string;
   description: string;
@@ -127,11 +131,11 @@ class Technologie {
     this.version = json.version ? typeof json.version === 'number' ? String(json.version) : json.version : undefined;
     this.description = json.description;
     this.icone = json.icone;
-    json.liens.forEach(l => this.liens.push(new Lien(l)));
+    if (json.liens) json.liens.forEach(l => this.liens.push(new Lien(l)));
   }
 }
 
-class Experience {
+export class Experience {
   entreprise: string;
   poste: string;
   debut: moment.Moment;
@@ -153,7 +157,7 @@ class Experience {
   }
 }
 
-class Projet {
+export class Projet {
   nom: string;
   type: string;
   debut: moment.Moment;
@@ -175,7 +179,7 @@ class Projet {
   }
 }
 
-class Lien {
+export class Lien {
   nom: string;
   url: string;
   description: string;
@@ -193,7 +197,7 @@ class Lien {
   }
 }
 
-class Contact {
+export class Contact {
   nom: string;
   prenom: string;
   email: string;

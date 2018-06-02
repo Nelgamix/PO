@@ -173,9 +173,20 @@ export const poData: JSONDocument = {
     {
       nom: 'Angular',
       version: 6,
-      description: '',
-      icone: '',
-      liens: []
+      description: 'Framework pour le dévelopement d\'applications web Single Page Application',
+      icone: 'assets/angular.png'
+    },
+    {
+      nom: 'Bootstrap',
+      version: 4,
+      description: 'Framework pour le dévelopement d\'applications web responsive',
+      icone: 'assets/bootstrap.png'
+    },
+    {
+      nom: 'PHP',
+      version: 7,
+      description: 'Langage côté serveur',
+      icone: 'assets/php.png'
     }
   ],
   experiences: [
@@ -195,7 +206,10 @@ export const poData: JSONDocument = {
       debut: '2017/06',
       fin: '2018/03',
       technologies: ['Angular', 'Bootstrap', 'PHP'],
-      images: [''],
+      images: [
+        'https://github.com/Nelgamix/PasswordManager/raw/master/screenshots/app.png',
+        'https://github.com/Nelgamix/PasswordManager/raw/master/screenshots/edition_domaine.png'
+      ],
       liens: [
         {
           nom: 'Site',

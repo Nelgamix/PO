@@ -9,6 +9,9 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ExpproComponent } from './exppro/exppro.component';
 import { ProjetsComponent } from './projets/projets.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {MarkdownModule} from 'ngx-markdown';
+import {MomentModule} from 'ngx-moment';
+import { TechnologieDescriptionComponent } from './technologie-description/technologie-description.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
     ContactComponent,
     AccueilComponent,
     ExpproComponent,
-    ProjetsComponent
+    ProjetsComponent,
+    TechnologieDescriptionComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    MomentModule,
     NgbModule.forRoot(),
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    MarkdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
