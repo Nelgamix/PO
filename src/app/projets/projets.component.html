@@ -15,7 +15,7 @@
             <span class="type" [style.background-color]="searchProjetType(p.type)">{{p.type}}</span>
           </div>
           <div class="dates">
-            {{p.debut | amDateFormat:'MM/YYYY'}} &mdash; {{p.fin | amDateFormat:'MM/YYYY'}}
+            {{p.debut | amDateFormat:'MM/YYYY'}} &mdash; {{p.fin | amDateFormat:'MM/YYYY'}} ({{p.duree}} mois)
           </div>
           <div class="technologies">
             <ng-container *ngFor="let t of p.technologies; let i = index">

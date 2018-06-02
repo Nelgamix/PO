@@ -177,6 +177,10 @@ export class Projet {
     if (json.liens) json.liens.forEach(l => this.liens.push(new Lien(l)));
     this.description = json.description;
   }
+
+  get duree() {
+    return Math.round(moment.duration(this.fin.diff(this.debut)).asMonths()) + 1;
+  }
 }
 
 export class Lien {

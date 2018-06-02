@@ -33,7 +33,7 @@ export const poData: JSONDocument = {
       },
       {
         nom: 'CV',
-        url: '#',
+        url: 'assets/CV.pdf',
         cacher: true
       }
     ],
@@ -194,6 +194,12 @@ export const poData: JSONDocument = {
       icone: 'assets/angular.png'
     },
     {
+      nom: 'AngularJS',
+      version: 1,
+      description: 'Framework pour le développement d\'applications web Single Page Application.',
+      icone: 'assets/angular.png'
+    },
+    {
       nom: 'Bootstrap',
       version: 4,
       description: 'Framework pour le développement d\'applications web responsive.',
@@ -226,6 +232,18 @@ export const poData: JSONDocument = {
       version: 3.6,
       description: 'Langage de script interprété',
       icone: 'assets/python.png'
+    },
+    {
+      nom: 'Node.js',
+      version: 10,
+      description: 'Plateforme d\'exécution de JavaScript native.',
+      icone: 'assets/nodejs.png'
+    },
+    {
+      nom: 'Android',
+      version: 9,
+      description: 'OS utilisé dans plus de 50% des smartphones.',
+      icone: 'assets/android.png'
     }
   ],
   experiences: [
@@ -234,8 +252,34 @@ export const poData: JSONDocument = {
       poste: 'Alternance',
       debut: '09/2018',
       fin: '09/2019',
-      technologies: ['Java', 'HTML'],
-      description: ''
+      technologies: ['Java', 'HTML', 'CSS', 'JavaScript', 'Angular', 'Node.js', 'Android'],
+      description: ``
+    },
+    {
+      entreprise: 'LIG',
+      poste: 'TER',
+      debut: '01/2018',
+      fin: '06/2018',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Angular'],
+      description: `
+        Stage de recherche effectué au Laboratoire d\'informatique de Grenoble, dans l'équipe IIHM.
+        * Création d'une application web pour visualiser un environnement virtuel correspondant à un batiment
+        en vue de tester un nouveau moteur pour la domotique.
+        * Tests sur ce moteur pour s'assurer de son bon fonctionnement.
+        * Création d'une application web pour éditer un programme EUD qui est ensuite utilisé dans ce moteur.
+      `
+    },
+    {
+      entreprise: 'LIG',
+      poste: 'Stage',
+      debut: '04/2016',
+      fin: '06/2016',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'AngularJS'],
+      description: `
+        Stage de fin de DUT effectué au Laboratoire d\'informatique de Grenoble, dans l'équipe MRIM.
+        Création d'une application web AngularJS pour annoter des média comme les images, les vidéo ou l'audio
+        en vue d'une utilisation pour faire tourner du deep learning sur des oeuvres de musée.
+      `
     }
   ],
   projets: [
@@ -292,7 +336,7 @@ export const poData: JSONDocument = {
     },
     {
       nom: 'Diaballik',
-      type: 'Projet en étude',
+      type: 'Projet de formation',
       debut: '2017/05',
       fin: '2017/06',
       technologies: ['Java', 'JavaFX'],
@@ -332,6 +376,14 @@ export const poData: JSONDocument = {
         }
       ],
       description: `
+        Script Python permettant de réaliser différentes actions sur un fichier de sous-titres:
+        * Décaler les sous-titres
+        * Renommer tous les fichiers de sous-titre détectés dans un dossier en faisant une reconnaissance
+        automatique avec les fichiers vidéos trouvés
+        Certaines fonctionnalitées utiles ont été implantées:
+        * Détection automatique des fichiers de sous-titre et des fichiers vidéo
+        * Fichier de configuration si la détection échoue
+        * Backup automatique
       `
     }
   ],
@@ -339,7 +391,20 @@ export const poData: JSONDocument = {
     {
       nom: 'Huchet',
       prenom: 'Nicolas',
-      email: 'truc@test.com'
+      email: 'nelgamix@gmail.com',
+      commentaires: 'Mon adresse email de Google'
+    },
+    {
+      nom: 'Huchet',
+      prenom: 'Nicolas',
+      email: 'contact@skysurf.ovh',
+      commentaires: 'Mon adresse email fournie par OVH pour master.skysurf'
+    },
+    {
+      nom: 'Huchet',
+      prenom: 'Nicolas',
+      email: 'nicolas.huchet@etu.univ-grenoble-alpes.fr',
+      commentaires: 'Mon adresse email de l\'UGA (école)'
     }
   ]
 };
