@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {DataService} from '../data.service';
+import {Document} from '../data-classes';
 
 @Component({
   selector: 'app-exppro',
   templateUrl: './exppro.component.html',
   styleUrls: ['./exppro.component.css']
 })
-export class ExpproComponent implements OnInit {
+export class ExpproComponent {
+  document: Document;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private dataService: DataService) {
+    this.document = dataService.document;
   }
-
 }

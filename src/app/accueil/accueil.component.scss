@@ -6,7 +6,10 @@ h3 {
 #presentation {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #00000015;
+  /*background-color: #00000015;*/
+  background: linear-gradient(to bottom, #aaa, #ccc);
+  box-shadow: 0 4px 8px -4px grey;
+  border-bottom: 4px solid red;
 }
 
 /* Logo */
@@ -82,7 +85,8 @@ h3 {
   background-color: #9999990f;
 
   .titre {
-    background-color: #9999991f;
+    /*background-color: #9999991f;*/
+    background: linear-gradient(to right, #bbb, #ddd);
   }
 
   .row.content {

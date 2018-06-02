@@ -1,9 +1,10 @@
-import {JSONDocument} from './accueil/accueil.component';
+import {JSONDocument} from './data-types';
 
 export const poData: JSONDocument = {
   infos: {
     nom: 'Huchet',
     prenom: 'Nicolas',
+    image: 'assets/lastskyphoenix.png',
     poste: 'Informaticien/Développeur',
     naissance: '1996/01/29',
     ville: 'Le Versoud',
@@ -140,24 +141,21 @@ export const poData: JSONDocument = {
         domaine: 'Informatique',
         debut: '2017',
         fin: '2019',
-        lieu: 'UGA, Grenoble',
-        commentaires: ''
+        lieu: 'UGA, Grenoble'
       },
       {
         nom: 'Licence, 3ème année',
         domaine: 'Informatique',
         debut: '2016',
         fin: '2017',
-        lieu: 'UGA, Grenoble',
-        commentaires: ''
+        lieu: 'UGA, Grenoble'
       },
       {
         nom: 'DUT',
         domaine: 'Informatique',
         debut: '2014',
         fin: '2016',
-        lieu: 'IUT 2, Grenoble',
-        commentaires: ''
+        lieu: 'IUT 2, Grenoble'
       }
     ],
     ci: [
@@ -171,6 +169,15 @@ export const poData: JSONDocument = {
       }
     ]
   },
+  technologies: [
+    {
+      nom: 'Angular',
+      version: 6,
+      description: '',
+      icone: '',
+      liens: []
+    }
+  ],
   experiences: [
     {
       entreprise: 'Capgemini',
@@ -184,10 +191,20 @@ export const poData: JSONDocument = {
   projets: [
     {
       nom: 'Master App',
-      debut: '222',
-      fin: '22',
-      technologies: [''],
-      description: ''
+      type: 'Projet personnel',
+      debut: '2017/06',
+      fin: '2018/03',
+      technologies: ['Angular', 'Bootstrap', 'PHP'],
+      images: [''],
+      liens: [
+        {
+          nom: 'Site',
+          url: 'https://master.skysurf.ovh'
+        }
+      ],
+      description: `
+        Création d'un site utile pour les étudiants en Master Informatique à l'UGA.
+      `
     }
   ],
   contacts: [
