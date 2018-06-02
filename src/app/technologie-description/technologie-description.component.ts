@@ -8,4 +8,12 @@ import {Technologie} from '../data-classes';
 })
 export class TechnologieDescriptionComponent {
   @Input() technologie: Technologie;
+
+  get title() {
+    return this.technologie.nom + (this.technologie.version ? ' ' + this.technologie.version : '');
+  }
+
+  get text() {
+    return this.technologie.description;
+  }
 }

@@ -171,22 +171,61 @@ export const poData: JSONDocument = {
   },
   technologies: [
     {
+      nom: 'HTML',
+      version: 5,
+      description: 'Langage de balisage permettant de structurer une page web.',
+      icone: 'assets/html.png'
+    },
+    {
+      nom: 'CSS',
+      version: 3,
+      description: 'Langage contextuel permettant de styliser une page web.',
+      icone: 'assets/css.png'
+    },
+    {
+      nom: 'JavaScript',
+      description: 'Langage de script permettant de manipuler une page web et de programmer des comportements.',
+      icone: 'assets/js.png'
+    },
+    {
       nom: 'Angular',
       version: 6,
-      description: 'Framework pour le dévelopement d\'applications web Single Page Application',
+      description: 'Framework pour le développement d\'applications web Single Page Application.',
       icone: 'assets/angular.png'
     },
     {
       nom: 'Bootstrap',
       version: 4,
-      description: 'Framework pour le dévelopement d\'applications web responsive',
+      description: 'Framework pour le développement d\'applications web responsive.',
       icone: 'assets/bootstrap.png'
     },
     {
       nom: 'PHP',
       version: 7,
-      description: 'Langage côté serveur',
+      description: 'Langage côté serveur.',
       icone: 'assets/php.png'
+    },
+    {
+      nom: 'Java',
+      version: 8,
+      description: 'Langage de programmation multi-plateforme par Oracle.',
+      icone: 'assets/java.png'
+    },
+    {
+      nom: 'JavaFX',
+      version: 8,
+      description: 'Framework pour créer des interfaces avec Java.'
+    },
+    {
+      nom: 'Google Drive',
+      description: 'Service de stockage de fichiers en ligne de Google.',
+      icone: 'assets/gdrive.png'
+    },
+    {
+      nom: 'Python',
+      version: 3.6,
+      description: 'Langage de script interprété',
+      icone: 'assets/python.png'
     }
   ],
   experiences: [
@@ -205,7 +244,7 @@ export const poData: JSONDocument = {
       type: 'Projet personnel',
       debut: '2017/06',
       fin: '2018/03',
-      technologies: ['Angular', 'Bootstrap', 'PHP'],
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Bootstrap', 'PHP'],
       images: [
         'https://github.com/Nelgamix/PasswordManager/raw/master/screenshots/app.png',
         'https://github.com/Nelgamix/PasswordManager/raw/master/screenshots/edition_domaine.png'
@@ -217,7 +256,82 @@ export const poData: JSONDocument = {
         }
       ],
       description: `
-        Création d'un site utile pour les étudiants en Master Informatique à l'UGA.
+        Création d'un site utile pour les étudiants en Master Informatique à l'UGA.\n
+        __Frontend__ avec Angular 6, comportant plusieurs modules:
+        * Regroupement de liens utiles sur les différents UE, et des liens généraux (Webmail, ADE, ...)
+        * Module 'Emploi du temps' avec persistance des données sur une base de données interne
+        * Module évènements, affichage des évènements relatifs à la formation\n
+        __Backend__ avec PHP et une base de données, pour les emploi du temps et les évènements.
+      `
+    },
+    {
+      nom: 'PasswordManager',
+      type: 'Projet personnel',
+      debut: '2017/06',
+      fin: '2017/07',
+      technologies: ['Java', 'JavaFX', 'Google Drive'],
+      images: [
+        'https://github.com/Nelgamix/PasswordManager/raw/master/screenshots/app.png',
+        'https://github.com/Nelgamix/PasswordManager/raw/master/screenshots/edition_domaine.png'
+      ],
+      liens: [
+        {
+          nom: 'GitHub',
+          url: 'https://www.github.com/Nelgamix/PasswordManager'
+        }
+      ],
+      description: `
+        Développement d'un __gestionnaire de mots de passe__ avec des fonctionnalités utiles telles que:
+        * Séparation par __domaine/site__
+        * __Génération aléatoire__ des noms de comptes, des mots de passe
+        * Gestion de __schéma__ pour la génération aléatoire
+        * __Cryptage__ des fichiers de sauvegarde
+        * Synchronisation avec __Google Drive__
+        * __Backup automatique__ des sauvegardes
+      `
+    },
+    {
+      nom: 'Diaballik',
+      type: 'Projet en étude',
+      debut: '2017/05',
+      fin: '2017/06',
+      technologies: ['Java', 'JavaFX'],
+      images: [
+        'https://github.com/Nelgamix/ProjetDiaballik/raw/master/screenshots/menu.png',
+        'https://github.com/Nelgamix/ProjetDiaballik/raw/master/screenshots/newGame.png',
+        'https://github.com/Nelgamix/ProjetDiaballik/raw/master/screenshots/loadGame.png',
+        'https://github.com/Nelgamix/ProjetDiaballik/raw/master/screenshots/gameWithLabel.png',
+        'https://github.com/Nelgamix/ProjetDiaballik/raw/master/screenshots/game.png',
+        'https://github.com/Nelgamix/ProjetDiaballik/raw/master/screenshots/vsAI.png'
+      ],
+      liens: [
+        {
+          nom: 'GitHub',
+          url: 'https://www.github.com/Nelgamix/ProjetDiaballik'
+        }
+      ],
+      description: `
+        Développement d'un jeu à partir des règles d'un jeu de plateau, en Java et à l'aide de JavaFX pour l'interface.
+        Projet réalisé à 5 et comportant les éléments suivants:
+        * Sauvegardes de la partie
+        * Undo/redo
+        * IA facile, moyen, difficile
+        * Jeu en réseau à 2
+      `
+    },
+    {
+      nom: 'Python Subtitles Utilities',
+      type: 'Projet personnel',
+      debut: '2016/04',
+      fin: '2016/04',
+      technologies: ['Python'],
+      liens: [
+        {
+          nom: 'GitHub',
+          url: 'https://www.github.com/Nelgamix/python_subtitles_utilities'
+        }
+      ],
+      description: `
       `
     }
   ],

@@ -5,7 +5,7 @@
         <div class="col">
           <div class="title">
             <span class="nom">{{p.nom}}</span>
-            <span class="type">{{p.type}}</span>
+            <span class="type" [style.background-color]="searchProjetType(p.type)">{{p.type}}</span>
           </div>
           <div class="dates">
             {{p.debut | amDateFormat:'MM/YYYY'}} &mdash; {{p.fin | amDateFormat:'MM/YYYY'}}
@@ -19,7 +19,9 @@
         </div>
         <div class="col-2 icones-technologies">
           <ng-container *ngFor="let t of p.technologies">
-            <img [src]="technologie.icone" alt="Image" *ngIf="document.searchTechnologie(t); let technologie" [mdbTooltip]="technologie.nom">
+            <ng-container *ngIf="document.searchTechnologie(t); let technologie">
+              <img [src]="technologie.icone" alt="Image" [mdbTooltip]="technologie.nom" *ngIf="technologie.icone">
+            </ng-container>
           </ng-container>
         </div>
       </div>
