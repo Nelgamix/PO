@@ -5,7 +5,7 @@ import {
   JSONDocument, JSONExperience, JSONExperiences,
   JSONFormation, JSONImage,
   JSONInfos, JSONLien, JSONProjet, JSONProjets,
-  JSONTechnologie
+  JSONTechnologie, JSONTemps
 } from './data-types';
 import * as moment from 'moment';
 
@@ -117,16 +117,14 @@ export class CentreInteret {
 export class Formation {
   nom: string;
   domaine: string;
-  debut: moment.Moment;
-  fin: moment.Moment;
+  temps: Temps;
   lieu: string;
   commentaires: string;
 
   constructor(json: JSONFormation) {
     this.nom = json.nom;
     this.domaine = json.domaine;
-    this.debut = moment(json.debut);
-    this.fin = moment(json.fin);
+    this.temps = new Temps(json.temps);
     this.lieu = json.lieu;
     this.commentaires = json.commentaires;
   }
@@ -164,8 +162,7 @@ export class Experience {
   entreprise: string;
   poste: string;
   type: string;
-  debut: moment.Moment;
-  fin: moment.Moment;
+  temps: Temps;
   technologies: string[] = [];
   images: Image[] = [];
   liens: Lien[] = [];
@@ -175,13 +172,16 @@ export class Experience {
     this.entreprise = json.entreprise;
     this.poste = json.poste;
     this.type = json.type;
-    this.debut = moment(json.debut);
-    this.fin = moment(json.fin);
+    this.temps = new Temps(json.temps);
     json.technologies.forEach(t => this.technologies.push(t));
     if (json.images) json.images.forEach(i => this.images.push(new Image(i)));
     if (json.liens) json.liens.forEach(l => this.liens.push(new Lien(l)));
     this.description = json.description;
   }
+
+  /*get duree() {
+    return Math.round(moment.duration(this.fin.diff(this.debut)).asMonths()) + 1;
+  }*/
 }
 
 export class Projets {
@@ -197,8 +197,7 @@ export class Projets {
 export class Projet {
   nom: string;
   type: string;
-  debut: moment.Moment;
-  fin: moment.Moment;
+  temps: Temps;
   technologies: string[] = [];
   images: Image[] = [];
   liens: Lien[] = [];
@@ -207,17 +206,16 @@ export class Projet {
   constructor(json: JSONProjet) {
     this.nom = json.nom;
     this.type = json.type;
-    this.debut = moment(json.debut);
-    this.fin = moment(json.fin);
+    this.temps = new Temps(json.temps);
     json.technologies.forEach(t => this.technologies.push(t));
     if (json.images) json.images.forEach(i => this.images.push(new Image(i)));
     if (json.liens) json.liens.forEach(l => this.liens.push(new Lien(l)));
     this.description = json.description;
   }
 
-  get duree() {
+  /*get duree() {
     return Math.round(moment.duration(this.fin.diff(this.debut)).asMonths()) + 1;
-  }
+  }*/
 }
 
 export class Lien {
@@ -247,6 +245,24 @@ export class Image {
     this.titre = json.titre;
     this.url = json.url;
     this.description = json.description;
+  }
+}
+
+export class Temps {
+  debut: moment.Moment;
+  fin: moment.Moment;
+  duree: moment.Duration;
+  actuellement: boolean;
+
+  constructor(json: JSONTemps) {
+    this.debut = moment(json.debut);
+    this.fin = moment(json.fin);
+    this.duree = this.fin ? moment.duration(this.fin.diff(this.debut)) : moment.duration(moment().diff(this.debut));
+    this.actuellement = !this.fin || moment().isBetween(this.debut, this.fin);
+  }
+
+  get dureeEnMois() {
+    return Math.round(this.duree.asMonths());
   }
 }
 

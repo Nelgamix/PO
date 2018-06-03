@@ -1,3 +1,70 @@
-<h1 class="text-center">
-  A venir!
-</h1>
+<form class="search">
+  <div class="md-form">
+    <input mdbInputDirective type="text" id="search" class="form-control" [mdbValidate]="false" [(ngModel)]="searchFor" name="search">
+    <label for="search">Rechercher</label>
+  </div>
+</form>
+
+<div class="wrapper">
+  <div class="row experience z-depth-1" *ngFor="let e of document.experiences.items | filterExperience:searchFor">
+    <div class="col">
+      <div class="row en-cours" *ngIf="e.temps.actuellement">
+        <div class="col text-center">En cours</div>
+      </div>
+      <div class="row header">
+        <div class="col">
+          <div class="title">
+            <span class="nom">{{e.entreprise}}/{{e.poste}}</span>
+            <span class="type" [style.background-color]="searchProjetType(e.type)">{{e.type}}</span>
+          </div>
+          <div class="dates">
+            {{e.temps.debut | amDateFormat:'MM/YYYY'}} &mdash; {{e.temps.fin | amDateFormat:'MM/YYYY'}} ({{e.temps.dureeEnMois}} mois)
+          </div>
+          <div class="technologies">
+            <ng-container *ngFor="let t of e.technologies; let i = index">
+              <ng-container *ngIf="i > 0">, </ng-container>
+              <app-technologie-description [technologie]="document.searchTechnologie(t)"></app-technologie-description>
+            </ng-container>
+          </div>
+        </div>
+        <div class="col-2 icones-technologies">
+          <ng-container *ngFor="let t of e.technologies">
+            <ng-container *ngIf="document.searchTechnologie(t); let technologie">
+              <img [src]="technologie.image.url" alt="Image" [mdbTooltip]="technologie.nom" *ngIf="technologie.image">
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+      <div class="row description" *ngIf="e.description || (e.images && e.images.length > 0) || (e.liens && e.liens.length > 0)">
+        <div class="col">
+          <markdown [data]="e.description"></markdown>
+          <div class="images">
+            <img *ngFor="let i of e.images" [src]="i.url" alt="Image" (click)="openPhotoZoom(i)">
+          </div>
+          <div class="liens">
+            <button *ngFor="let b of e.liens" (click)="open(b.url)" class="btn btn-primary waves-light" mdbWavesEffect>{{b.nom}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div mdbModal #photoZoom="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fluid" role="document" style="width: 80vw;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="photoZoom.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">{{image?.titre}}</h4>
+      </div>
+      <div class="modal-body" style="display: flex; justify-content: center; overflow: auto;">
+        <img src="{{image?.url}}" alt="Image">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary waves-light" aria-label="Close" (click)="photoZoom.hide()" mdbWavesEffect>Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

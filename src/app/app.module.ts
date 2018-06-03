@@ -13,6 +13,7 @@ import {MomentModule} from 'ngx-moment';
 import { TechnologieDescriptionComponent } from './technologie-description/technologie-description.component';
 import { FilterProjetPipe } from './filter-projet.pipe';
 import {FormsModule} from '@angular/forms';
+import { FilterExperiencePipe } from './filter-experience.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {FormsModule} from '@angular/forms';
     ExpproComponent,
     ProjetsComponent,
     TechnologieDescriptionComponent,
-    FilterProjetPipe
+    FilterProjetPipe,
+    FilterExperiencePipe
   ],
   imports: [
     AppRoutingModule,

@@ -8,6 +8,9 @@
 <div class="wrapper">
   <div class="row projet z-depth-1" *ngFor="let p of document.projets.items | filterProjet:searchFor">
     <div class="col">
+      <div class="row en-cours" *ngIf="p.temps.actuellement">
+        <div class="col text-center">En cours</div>
+      </div>
       <div class="row header">
         <div class="col">
           <div class="title">
@@ -15,7 +18,7 @@
             <span class="type" [style.background-color]="searchProjetType(p.type)">{{p.type}}</span>
           </div>
           <div class="dates">
-            {{p.debut | amDateFormat:'MM/YYYY'}} &mdash; {{p.fin | amDateFormat:'MM/YYYY'}} ({{p.duree}} mois)
+            {{p.temps.debut | amDateFormat:'MM/YYYY'}} &mdash; {{p.temps.fin | amDateFormat:'MM/YYYY'}} ({{p.temps.dureeEnMois}} mois)
           </div>
           <div class="technologies">
             <ng-container *ngFor="let t of p.technologies; let i = index">

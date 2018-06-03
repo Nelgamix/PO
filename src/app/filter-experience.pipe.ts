@@ -1,17 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Projet} from './data-classes';
+import {Experience, Projet} from './data-classes';
 
 @Pipe({
-  name: 'filterProjet'
+  name: 'filterExperience'
 })
-export class FilterProjetPipe implements PipeTransform {
-  transform(value: Projet[], args: string): any {
+export class FilterExperiencePipe implements PipeTransform {
+  transform(value: Experience[], args: string): any {
     if (args.length < 2) return value;
 
     const ps = [];
     const searchFor = args.toLowerCase();
     value.forEach(p => {
-      if (this.search(p.nom, searchFor) || this.searchArray(p.technologies, searchFor) || this.search(p.description, searchFor)) {
+      if (this.search(p.entreprise, searchFor) || this.searchArray(p.technologies, searchFor) || this.search(p.description, searchFor)) {
         ps.push(p);
       }
     });

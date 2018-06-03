@@ -40,8 +40,7 @@ export interface JSONCentreInteret {
 export interface JSONFormation {
   nom: string;
   domaine: string;
-  debut: string;
-  fin: string;
+  temps: JSONTemps;
   lieu: string;
   commentaires?: string;
 }
@@ -64,8 +63,7 @@ export interface JSONExperience {
   entreprise: string;
   poste: string;
   type: string;
-  debut: string;
-  fin: string;
+  temps: JSONTemps;
   technologies: string[];
   images?: JSONImage[];
   liens?: JSONLien[];
@@ -80,8 +78,7 @@ export interface JSONProjets {
 export interface JSONProjet {
   nom: string;
   type: string;
-  debut: string;
-  fin: string;
+  temps: JSONTemps;
   technologies: string[];
   images?: JSONImage[];
   liens?: JSONLien[];
@@ -101,6 +98,11 @@ export interface JSONImage {
   titre?: string;
   url: string;
   description?: string;
+}
+
+export interface JSONTemps {
+  debut: string;
+  fin?: string;
 }
 
 export interface JSONContact {

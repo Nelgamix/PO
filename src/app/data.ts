@@ -147,22 +147,28 @@ export const poData: JSONDocument = {
       {
         nom: 'Master',
         domaine: 'Informatique',
-        debut: '2017',
-        fin: '2019',
+        temps: {
+          debut: '2017',
+          fin: '2019'
+        },
         lieu: 'UGA, Grenoble'
       },
       {
         nom: 'Licence, 3ème année',
         domaine: 'Informatique',
-        debut: '2016',
-        fin: '2017',
+        temps: {
+          debut: '2016',
+          fin: '2017'
+        },
         lieu: 'UGA, Grenoble'
       },
       {
         nom: 'DUT',
         domaine: 'Informatique',
-        debut: '2014',
-        fin: '2016',
+        temps: {
+          debut: '2014',
+          fin: '2016'
+        },
         lieu: 'IUT 2, Grenoble'
       }
     ],
@@ -284,8 +290,10 @@ export const poData: JSONDocument = {
         entreprise: 'Capgemini',
         poste: 'Développeur',
         type: 'Alternance',
-        debut: '09/2018',
-        fin: '09/2019',
+        temps: {
+          debut: '2018/09',
+          fin: '2019/09'
+        },
         technologies: ['Java', 'HTML', 'CSS', 'JavaScript', 'Angular', 'Node.js', 'Android'],
         description: ``
       },
@@ -293,8 +301,10 @@ export const poData: JSONDocument = {
         entreprise: 'LIG',
         poste: 'Développeur',
         type: 'TER',
-        debut: '01/2018',
-        fin: '06/2018',
+        temps: {
+          debut: '2018/01',
+          fin: '2018/07'
+        },
         technologies: ['HTML', 'CSS', 'JavaScript', 'Angular'],
         description: `
           Stage de recherche effectué au Laboratoire d\'informatique de Grenoble, dans l'équipe IIHM.
@@ -308,8 +318,10 @@ export const poData: JSONDocument = {
         entreprise: 'LIG',
         poste: 'Développeur',
         type: 'Stage',
-        debut: '04/2016',
-        fin: '06/2016',
+        temps: {
+          debut: '2016/04',
+          fin: '2016/07'
+        },
         technologies: ['HTML', 'CSS', 'JavaScript', 'AngularJS'],
         description: `
           Stage de fin de DUT effectué au Laboratoire d\'informatique de Grenoble, dans l'équipe MRIM.
@@ -324,8 +336,10 @@ export const poData: JSONDocument = {
       {
         nom: 'Master App',
         type: 'Projet personnel',
-        debut: '2017/06',
-        fin: '2018/03',
+        temps: {
+          debut: '2017/06',
+          fin: '2018/04'
+        },
         technologies: ['HTML', 'CSS', 'JavaScript', 'Angular', 'Bootstrap', 'PHP'],
         liens: [
           {
@@ -345,8 +359,10 @@ export const poData: JSONDocument = {
       {
         nom: 'RandomStock',
         type: 'Projet personnel',
-        debut: '2018/01',
-        fin: '2018/05',
+        temps: {
+          debut: '2018/01',
+          fin: '2018/06'
+        },
         technologies: ['Android'],
         liens: [
           {
@@ -363,8 +379,10 @@ export const poData: JSONDocument = {
       {
         nom: 'PasswordManager',
         type: 'Projet personnel',
-        debut: '2017/06',
-        fin: '2017/07',
+        temps: {
+          debut: '2017/06',
+          fin: '2017/08'
+        },
         technologies: ['Java', 'JavaFX', 'Google Drive'],
         liens: [
           {
@@ -385,8 +403,10 @@ export const poData: JSONDocument = {
       {
         nom: 'Diaballik',
         type: 'Projet de formation',
-        debut: '2017/05',
-        fin: '2017/06',
+        temps: {
+          debut: '2017/05',
+          fin: '2017/07'
+        },
         technologies: ['Java', 'JavaFX'],
         images: [
           {
@@ -432,8 +452,10 @@ export const poData: JSONDocument = {
       {
         nom: 'Python Subtitles Utilities',
         type: 'Projet personnel',
-        debut: '2016/04',
-        fin: '2016/04',
+        temps: {
+          debut: '2016/04',
+          fin: '2016/05'
+        },
         technologies: ['Python'],
         liens: [
           {

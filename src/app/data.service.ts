@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Document} from './data-classes';
 import {JSONDocument} from './data-types';
 
-export interface ProjetType {
+export interface ProjetOrExperienceType {
   nom: string;
   couleur: string;
 }
@@ -17,7 +17,8 @@ const couleurs = [
 export class DataService {
   private _document: Document;
 
-  private _projetTypes: ProjetType[] = [];
+  private _projetTypes: ProjetOrExperienceType[] = [];
+  private _experienceTypes: ProjetOrExperienceType[] = [];
 
   constructor() { }
 
@@ -27,7 +28,12 @@ export class DataService {
     // Analyse
     this.document.projets.items.forEach(p => {
       if (p.type && this._projetTypes.filter(type => type.nom === p.type).length === 0) {
-        this._projetTypes.push({nom: p.type, couleur: couleurs.splice(0, 1)[0]});
+        this._projetTypes.push({nom: p.type, couleur: couleurs[this._projetTypes.length % couleurs.length]});
+      }
+    });
+    this.document.experiences.items.forEach(e => {
+      if (e.type && this._experienceTypes.filter(type => type.nom === e.type).length === 0) {
+        this._experienceTypes.push({nom: e.type, couleur: couleurs[this._experienceTypes.length % couleurs.length]});
       }
     });
   }
@@ -36,7 +42,11 @@ export class DataService {
     return this._document;
   }
 
-  get projetTypes(): ProjetType[] {
+  get projetTypes(): ProjetOrExperienceType[] {
     return this._projetTypes;
+  }
+
+  get experienceTypes(): ProjetOrExperienceType[] {
+    return this._experienceTypes;
   }
 }

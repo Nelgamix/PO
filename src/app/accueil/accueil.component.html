@@ -96,7 +96,7 @@
             <tr *ngFor="let f of document.infos.formation">
               <td>{{f.nom}}</td>
               <td>{{f.domaine}}</td>
-              <td>{{f.debut.year()}} - {{f.fin.year()}}</td>
+              <td>{{f.temps.debut.year()}} - {{f.temps.fin.year()}}</td>
               <td>{{f.lieu}}</td>
             </tr>
           </tbody>

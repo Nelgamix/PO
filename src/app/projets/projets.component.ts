@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {DataService, ProjetType} from '../data.service';
+import {DataService, ProjetOrExperienceType} from '../data.service';
 import {Document, Image} from '../data-classes';
 
 @Component({
@@ -9,7 +9,7 @@ import {Document, Image} from '../data-classes';
 })
 export class ProjetsComponent {
   document: Document;
-  projetTypes: ProjetType[];
+  projetTypes: ProjetOrExperienceType[];
   searchFor = '';
 
   @ViewChild('photoZoom') public modalPhotoZoom;
