@@ -6,7 +6,7 @@
 </form>
 
 <div class="wrapper">
-  <div class="row projet z-depth-1" *ngFor="let p of document.projets | filterProjet:searchFor">
+  <div class="row projet z-depth-1" *ngFor="let p of document.projets.items | filterProjet:searchFor">
     <div class="col">
       <div class="row header">
         <div class="col">
@@ -27,7 +27,7 @@
         <div class="col-2 icones-technologies">
           <ng-container *ngFor="let t of p.technologies">
             <ng-container *ngIf="document.searchTechnologie(t); let technologie">
-              <img [src]="technologie.icone" alt="Image" [mdbTooltip]="technologie.nom" *ngIf="technologie.icone">
+              <img [src]="technologie.image.url" alt="Image" [mdbTooltip]="technologie.nom" *ngIf="technologie.image">
             </ng-container>
           </ng-container>
         </div>
@@ -36,7 +36,7 @@
         <div class="col">
           <markdown [data]="p.description"></markdown>
           <div class="images">
-            <img *ngFor="let i of p.images" [src]="i" alt="Image" (click)="openPhotoZoom(i)">
+            <img *ngFor="let i of p.images" [src]="i.url" alt="Image" (click)="openPhotoZoom(i)">
           </div>
           <div class="liens">
             <button *ngFor="let b of p.liens" (click)="open(b.url)" class="btn btn-primary waves-light" mdbWavesEffect>{{b.nom}}</button>
@@ -48,16 +48,16 @@
 </div>
 
 <div mdbModal #photoZoom="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-fluid" role="document">
+  <div class="modal-dialog modal-fluid" role="document" style="width: 80vw;">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close pull-right" aria-label="Close" (click)="photoZoom.hide()">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title w-100" id="myModalLabel">Zoom sur l'image</h4>
+        <h4 class="modal-title w-100" id="myModalLabel">{{image?.titre}}</h4>
       </div>
-      <div class="modal-body" style="display: flex; justify-content: center;">
-        <img src="{{photo}}" alt="Image">
+      <div class="modal-body" style="display: flex; justify-content: center; overflow: auto;">
+        <img src="{{image?.url}}" alt="Image">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary waves-light" aria-label="Close" (click)="photoZoom.hide()" mdbWavesEffect>Fermer</button>

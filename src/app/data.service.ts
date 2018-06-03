@@ -25,7 +25,7 @@ export class DataService {
     this._document = new Document(json);
 
     // Analyse
-    this.document.projets.forEach(p => {
+    this.document.projets.items.forEach(p => {
       if (p.type && this._projetTypes.filter(type => type.nom === p.type).length === 0) {
         this._projetTypes.push({nom: p.type, couleur: couleurs.splice(0, 1)[0]});
       }

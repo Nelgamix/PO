@@ -2,28 +2,41 @@ import {
   JSONCentreInteret,
   JSONCompetenceCategorie,
   JSONCompetenceDomaine, JSONContact,
-  JSONDocument, JSONExperience,
-  JSONFormation,
-  JSONInfos, JSONLien, JSONProjet,
+  JSONDocument, JSONExperience, JSONExperiences,
+  JSONFormation, JSONImage,
+  JSONInfos, JSONLien, JSONProjet, JSONProjets,
   JSONTechnologie
 } from './data-types';
 import * as moment from 'moment';
 
-/*
-  CLASSES
-*/
+export enum SortType {
+  DATE, DUREE, NOM, TECHNOLOGIE, NOMBRE_TECHNOLOGIES
+}
+
+function getSortType(st: string) {
+  if (!st) return SortType.DATE;
+  switch (st) {
+    case 'DATE': return SortType.DATE;
+    case 'DUREE': return SortType.DUREE;
+    case 'NOM': return SortType.NOM;
+    case 'TECHNOLOGIE': return SortType.TECHNOLOGIE;
+    case 'NOMBRE_TECHNOLOGIES': return SortType.NOMBRE_TECHNOLOGIES;
+    default: return SortType.DATE;
+  }
+}
+
 export class Document {
   infos: Infos;
   technologies: Technologie[] = [];
-  experiences: Experience[] = [];
-  projets: Projet[] = [];
+  experiences: Experiences;
+  projets: Projets;
   contacts: Contact[] = [];
 
   constructor(json: JSONDocument) {
     this.infos = new Infos(json.infos);
     json.technologies.forEach(t => this.technologies.push(new Technologie(t)));
-    json.experiences.forEach(e => this.experiences.push(new Experience(e)));
-    json.projets.forEach(p => this.projets.push(new Projet(p)));
+    this.experiences = new Experiences(json.experiences);
+    this.projets = new Projets(json.projets);
     json.contacts.forEach(c => this.contacts.push(new Contact(c)));
   }
 
@@ -35,7 +48,7 @@ export class Document {
 export class Infos {
   nom: string;
   prenom: string;
-  image: string;
+  image: Image;
   poste: string;
   naissance: string;
   ville: string;
@@ -50,7 +63,7 @@ export class Infos {
   constructor(json: JSONInfos) {
     this.nom = json.nom;
     this.prenom = json.prenom;
-    this.image = json.image;
+    this.image = new Image(json.image);
     this.poste = json.poste;
     this.naissance = json.naissance;
     this.ville = json.ville;
@@ -123,37 +136,61 @@ export class Technologie {
   nom: string;
   version: string;
   description: string;
-  icone: string;
+  image: Image;
   liens: Lien[] = [];
+  maitrise: number;
 
   constructor(json: JSONTechnologie) {
     this.nom = json.nom;
     this.version = json.version ? typeof json.version === 'number' ? String(json.version) : json.version : undefined;
     this.description = json.description;
-    this.icone = json.icone;
+    this.image = json.image ? new Image(json.image) : undefined;
     if (json.liens) json.liens.forEach(l => this.liens.push(new Lien(l)));
+    this.maitrise = json.maitrise;
+  }
+}
+
+export class Experiences {
+  sort: SortType;
+  items: Experience[] = [];
+
+  constructor(json: JSONExperiences) {
+    this.sort = getSortType(json.sort);
+    json.items.forEach(e => this.items.push(new Experience(e)));
   }
 }
 
 export class Experience {
   entreprise: string;
   poste: string;
+  type: string;
   debut: moment.Moment;
   fin: moment.Moment;
   technologies: string[] = [];
-  images: string[] = [];
+  images: Image[] = [];
   liens: Lien[] = [];
   description: string;
 
   constructor(json: JSONExperience) {
     this.entreprise = json.entreprise;
     this.poste = json.poste;
+    this.type = json.type;
     this.debut = moment(json.debut);
     this.fin = moment(json.fin);
     json.technologies.forEach(t => this.technologies.push(t));
-    if (json.images) json.images.forEach(i => this.images.push(i));
+    if (json.images) json.images.forEach(i => this.images.push(new Image(i)));
     if (json.liens) json.liens.forEach(l => this.liens.push(new Lien(l)));
     this.description = json.description;
+  }
+}
+
+export class Projets {
+  sort: SortType;
+  items: Projet[] = [];
+
+  constructor(json: JSONProjets) {
+    this.sort = getSortType(json.sort);
+    json.items.forEach(p => this.items.push(new Projet(p)));
   }
 }
 
@@ -163,7 +200,7 @@ export class Projet {
   debut: moment.Moment;
   fin: moment.Moment;
   technologies: string[] = [];
-  images: string[] = [];
+  images: Image[] = [];
   liens: Lien[] = [];
   description: string;
 
@@ -173,7 +210,7 @@ export class Projet {
     this.debut = moment(json.debut);
     this.fin = moment(json.fin);
     json.technologies.forEach(t => this.technologies.push(t));
-    if (json.images) json.images.forEach(i => this.images.push(i));
+    if (json.images) json.images.forEach(i => this.images.push(new Image(i)));
     if (json.liens) json.liens.forEach(l => this.liens.push(new Lien(l)));
     this.description = json.description;
   }
@@ -188,7 +225,7 @@ export class Lien {
   url: string;
   description: string;
   utilisateur: string;
-  image: string;
+  image: Image;
   cacher: boolean;
 
   constructor(json: JSONLien) {
@@ -196,8 +233,20 @@ export class Lien {
     this.url = json.url;
     this.description = json.description;
     this.utilisateur = json.utilisateur;
-    this.image = json.image;
+    this.image = json.image ? new Image(json.image) : undefined;
     this.cacher = json.cacher || false;
+  }
+}
+
+export class Image {
+  titre: string;
+  url: string;
+  description: string;
+
+  constructor(json: JSONImage) {
+    this.titre = json.titre;
+    this.url = json.url;
+    this.description = json.description;
   }
 }
 

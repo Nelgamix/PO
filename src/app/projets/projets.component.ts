@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {DataService, ProjetType} from '../data.service';
-import {Document} from '../data-classes';
+import {Document, Image} from '../data-classes';
 
 @Component({
   selector: 'app-projets',
@@ -13,7 +13,7 @@ export class ProjetsComponent {
   searchFor = '';
 
   @ViewChild('photoZoom') public modalPhotoZoom;
-  photo: string;
+  image: Image;
 
   constructor(private dataService: DataService) {
     this.document = dataService.document;
@@ -24,8 +24,8 @@ export class ProjetsComponent {
     window.open(url, '_blank');
   }
 
-  openPhotoZoom(url: string): void {
-    this.photo = url;
+  openPhotoZoom(image: Image): void {
+    this.image = image;
     this.modalPhotoZoom.show();
   }
 

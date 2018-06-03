@@ -1,18 +1,15 @@
-/*
-  INTERFACES JSON
- */
 export interface JSONDocument {
   infos: JSONInfos;
   technologies: JSONTechnologie[];
-  experiences: JSONExperience[];
-  projets: JSONProjet[];
+  experiences: JSONExperiences;
+  projets: JSONProjets;
   contacts: JSONContact[];
 }
 
 export interface JSONInfos {
   nom: string;
   prenom: string;
-  image?: string;
+  image?: JSONImage;
   poste: string;
   naissance: string;
   ville: string;
@@ -53,19 +50,31 @@ export interface JSONTechnologie {
   nom: string;
   version?: string | number;
   description: string;
-  icone?: string;
+  image?: JSONImage;
   liens?: JSONLien[];
+  maitrise?: number;
+}
+
+export interface JSONExperiences {
+  sort?: string;
+  items: JSONExperience[];
 }
 
 export interface JSONExperience {
   entreprise: string;
   poste: string;
+  type: string;
   debut: string;
   fin: string;
   technologies: string[];
-  images?: string[];
+  images?: JSONImage[];
   liens?: JSONLien[];
   description: string;
+}
+
+export interface JSONProjets {
+  sort?: string;
+  items: JSONProjet[];
 }
 
 export interface JSONProjet {
@@ -74,7 +83,7 @@ export interface JSONProjet {
   debut: string;
   fin: string;
   technologies: string[];
-  images?: string[];
+  images?: JSONImage[];
   liens?: JSONLien[];
   description: string;
 }
@@ -84,8 +93,14 @@ export interface JSONLien {
   url: string;
   description?: string;
   utilisateur?: string;
-  image?: string;
+  image?: JSONImage;
   cacher?: boolean;
+}
+
+export interface JSONImage {
+  titre?: string;
+  url: string;
+  description?: string;
 }
 
 export interface JSONContact {

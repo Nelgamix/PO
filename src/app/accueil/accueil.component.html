@@ -1,6 +1,6 @@
 <div class="row" id="presentation">
   <div class="col-auto">
-    <img *ngIf="document.infos.image" [src]="document.infos.image" alt="Logo" id="logo">
+    <img *ngIf="document.infos.image" [src]="document.infos.image.url" alt="Logo" id="logo">
   </div>
   <div class="col">
     <h2>{{document.infos.prenom}} {{document.infos.nom}}</h2>
@@ -11,7 +11,7 @@
     <div id="dlinks">
       <ng-container *ngFor="let l of document.infos.liens">
         <a *ngIf="!l.cacher" class="dlink" [href]="l.url" placement="top" [mdbTooltip]="l.utilisateur">
-          <img [src]="l.image" alt="Logo {{l.nom}}">
+          <img [src]="l.image.url" alt="Logo {{l.nom}}">
           <div>{{l.nom}}</div>
         </a>
       </ng-container>
