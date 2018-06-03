@@ -14,6 +14,6 @@ export class TechnologieDescriptionComponent {
   }
 
   get text() {
-    return this.technologie.description;
+    return this.technologie.description ? this.technologie.description : 'Pas de description fournie.';
   }
 }

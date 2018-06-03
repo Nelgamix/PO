@@ -1,18 +1,21 @@
 <div class="row" id="presentation">
-  <div class="col-auto">
-    <img *ngIf="document.infos.image" [src]="document.infos.image.url" alt="Logo" id="logo">
+  <div class="col-auto" *ngIf="document.infos.image">
+    <img [src]="document.infos.image.url" alt="Logo" id="logo">
   </div>
   <div class="col">
     <h2>{{document.infos.prenom}} {{document.infos.nom}}</h2>
     <h4>{{document.infos.poste}}</h4>
     <p>
-      <span>{{document.infos.age}} ans</span> &mdash; <span>{{document.infos.ville}}</span><span *ngIf="document.infos.permis"> &mdash; Permis B</span>
+      <ng-container *ngFor="let item of infoBar; let i = index">
+        <ng-container *ngIf="i > 0"> &mdash; </ng-container>
+        <span>{{item}}</span>
+      </ng-container>
     </p>
-    <div id="dlinks">
+    <div id="dlinks" *ngIf="document.infos.liens && document.infos.liens.length > 0">
       <ng-container *ngFor="let l of document.infos.liens">
-        <a *ngIf="!l.cacher" class="dlink" [href]="l.url" placement="top" [mdbTooltip]="l.utilisateur">
-          <img [src]="l.image.url" alt="Logo {{l.nom}}">
-          <div>{{l.nom}}</div>
+        <a *ngIf="!l.cacher" class="dlink" [href]="l.url" target="_blank" placement="top" [mdbTooltip]="l.utilisateur">
+          <img [src]="l.image.url" alt="Image {{l.nom}}">
+          <div>{{l.nom ? l.nom : l.url}}</div>
         </a>
       </ng-container>
     </div>
@@ -28,7 +31,7 @@
   </div>
 </div>
 
-<div class="row categorie z-depth-1" id="bio">
+<div *ngIf="document.infos.bio" class="row categorie z-depth-1" id="bio">
   <div class="col">
     <div class="row titre">
       <div class="col">
@@ -45,7 +48,7 @@
   </div>
 </div>
 
-<div class="row categorie z-depth-1" id="competences">
+<div *ngIf="document.infos.competences" class="row categorie z-depth-1" id="competences">
   <div class="col">
     <div class="row titre">
       <div class="col">
@@ -74,7 +77,7 @@
   </div>
 </div>
 
-<div class="row categorie z-depth-1" id="formation">
+<div *ngIf="document.infos.formation" class="row categorie z-depth-1" id="formation">
   <div class="col">
     <div class="row titre">
       <div class="col">
@@ -95,7 +98,7 @@
           <tbody>
             <tr *ngFor="let f of document.infos.formation">
               <td>{{f.nom}}</td>
-              <td>{{f.domaine}}</td>
+              <td>{{f.domaine ? f.domaine : '&mdash;'}}</td>
               <td>{{f.temps.debut.year()}} - {{f.temps.fin.year()}}</td>
               <td>{{f.lieu}}</td>
             </tr>
@@ -106,7 +109,7 @@
   </div>
 </div>
 
-<div class="row categorie z-depth-1" id="centresinterets">
+<div *ngIf="document.infos.ci" class="row categorie z-depth-1" id="centresinterets">
   <div class="col">
     <div class="row titre">
       <div class="col">

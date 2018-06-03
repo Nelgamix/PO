@@ -35,9 +35,9 @@ export class Document {
   constructor(json: JSONDocument) {
     this.infos = new Infos(json.infos);
     json.technologies.forEach(t => this.technologies.push(new Technologie(t)));
-    this.experiences = new Experiences(json.experiences);
+    this.experiences = json.experiences ? new Experiences(json.experiences) : undefined;
     this.projets = new Projets(json.projets);
-    json.contacts.forEach(c => this.contacts.push(new Contact(c)));
+    if (json.contacts) json.contacts.forEach(c => this.contacts.push(new Contact(c)));
   }
 
   searchTechnologie(tech: string): Technologie {
@@ -51,7 +51,7 @@ export class Infos {
   image: Image;
   poste: string;
   naissance: string;
-  ville: string;
+  localisation: string;
   permis: boolean;
   liens: Lien[] = [];
 
@@ -66,13 +66,13 @@ export class Infos {
     this.image = new Image(json.image);
     this.poste = json.poste;
     this.naissance = json.naissance;
-    this.ville = json.ville;
+    this.localisation = json.localisation;
     this.permis = json.permis;
-    json.liens.forEach(l => this.liens.push(new Lien(l)));
-    json.bio.forEach(b => this.bio.push(b));
-    json.competences.forEach(c => this.competences.push(new CompetenceCategorie(c)));
-    json.formation.forEach(f => this.formation.push(new Formation(f)));
-    json.ci.forEach(ci => this.ci.push(new CentreInteret(ci)));
+    if (json.liens) json.liens.forEach(l => this.liens.push(new Lien(l)));
+    if (json.bio) json.bio.forEach(b => this.bio.push(b));
+    if (json.competences) json.competences.forEach(c => this.competences.push(new CompetenceCategorie(c)));
+    if (json.formation) json.formation.forEach(f => this.formation.push(new Formation(f)));
+    if (json.ci) json.ci.forEach(ci => this.ci.push(new CentreInteret(ci)));
   }
 
   get age(): number {
@@ -173,15 +173,11 @@ export class Experience {
     this.poste = json.poste;
     this.type = json.type;
     this.temps = new Temps(json.temps);
-    json.technologies.forEach(t => this.technologies.push(t));
+    if (json.technologies) json.technologies.forEach(t => this.technologies.push(t));
     if (json.images) json.images.forEach(i => this.images.push(new Image(i)));
     if (json.liens) json.liens.forEach(l => this.liens.push(new Lien(l)));
     this.description = json.description;
   }
-
-  /*get duree() {
-    return Math.round(moment.duration(this.fin.diff(this.debut)).asMonths()) + 1;
-  }*/
 }
 
 export class Projets {
@@ -207,15 +203,11 @@ export class Projet {
     this.nom = json.nom;
     this.type = json.type;
     this.temps = new Temps(json.temps);
-    json.technologies.forEach(t => this.technologies.push(t));
+    if (json.technologies) json.technologies.forEach(t => this.technologies.push(t));
     if (json.images) json.images.forEach(i => this.images.push(new Image(i)));
     if (json.liens) json.liens.forEach(l => this.liens.push(new Lien(l)));
     this.description = json.description;
   }
-
-  /*get duree() {
-    return Math.round(moment.duration(this.fin.diff(this.debut)).asMonths()) + 1;
-  }*/
 }
 
 export class Lien {

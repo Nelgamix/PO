@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Document} from './data-classes';
+import {Document, Technologie} from './data-classes';
 import {JSONDocument} from './data-types';
 
 export interface ProjetOrExperienceType {
@@ -10,7 +10,8 @@ export interface ProjetOrExperienceType {
 const couleurs = [
   'goldenrod',
   'cornflowerblue',
-  'crimson'
+  'crimson',
+  'darkviolet'
 ];
 
 @Injectable({providedIn: 'root'})
@@ -34,6 +35,17 @@ export class DataService {
     this.document.experiences.items.forEach(e => {
       if (e.type && this._experienceTypes.filter(type => type.nom === e.type).length === 0) {
         this._experienceTypes.push({nom: e.type, couleur: couleurs[this._experienceTypes.length % couleurs.length]});
+      }
+    });
+
+    // Analyse des techs
+    let exps = [];
+    this._document.experiences.items.forEach(e => exps = exps.concat(e.technologies));
+    this._document.projets.items.forEach(e => exps = exps.concat(e.technologies));
+
+    exps.forEach(t => {
+      if (!this.document.technologies.find(v => v.nom === t)) {
+        this.document.technologies.push(new Technologie({nom: t}));
       }
     });
   }

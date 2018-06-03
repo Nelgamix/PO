@@ -1,6 +1,6 @@
 export interface JSONDocument {
   infos: JSONInfos;
-  technologies: JSONTechnologie[];
+  technologies?: JSONTechnologie[];
   experiences: JSONExperiences;
   projets: JSONProjets;
   contacts: JSONContact[];
@@ -11,15 +11,15 @@ export interface JSONInfos {
   prenom: string;
   image?: JSONImage;
   poste: string;
-  naissance: string;
-  ville: string;
+  naissance?: string;
+  localisation?: string;
   permis?: boolean;
-  liens: JSONLien[];
+  liens?: JSONLien[];
 
-  bio: string[];
-  competences: JSONCompetenceCategorie[];
-  formation: JSONFormation[];
-  ci: JSONCentreInteret[];
+  bio?: string[];
+  competences?: JSONCompetenceCategorie[];
+  formation?: JSONFormation[];
+  ci?: JSONCentreInteret[];
 }
 
 export interface JSONCompetenceCategorie {
@@ -39,7 +39,7 @@ export interface JSONCentreInteret {
 
 export interface JSONFormation {
   nom: string;
-  domaine: string;
+  domaine?: string;
   temps: JSONTemps;
   lieu: string;
   commentaires?: string;
@@ -48,7 +48,7 @@ export interface JSONFormation {
 export interface JSONTechnologie {
   nom: string;
   version?: string | number;
-  description: string;
+  description?: string;
   image?: JSONImage;
   liens?: JSONLien[];
   maitrise?: number;
@@ -62,12 +62,12 @@ export interface JSONExperiences {
 export interface JSONExperience {
   entreprise: string;
   poste: string;
-  type: string;
+  type?: string;
   temps: JSONTemps;
-  technologies: string[];
+  technologies?: string[];
   images?: JSONImage[];
   liens?: JSONLien[];
-  description: string;
+  description?: string;
 }
 
 export interface JSONProjets {
@@ -77,16 +77,16 @@ export interface JSONProjets {
 
 export interface JSONProjet {
   nom: string;
-  type: string;
+  type?: string;
   temps: JSONTemps;
-  technologies: string[];
+  technologies?: string[];
   images?: JSONImage[];
   liens?: JSONLien[];
-  description: string;
+  description?: string;
 }
 
 export interface JSONLien {
-  nom: string;
+  nom?: string;
   url: string;
   description?: string;
   utilisateur?: string;
@@ -106,8 +106,8 @@ export interface JSONTemps {
 }
 
 export interface JSONContact {
-  nom: string;
-  prenom: string;
+  nom?: string;
+  prenom?: string;
   email: string;
   commentaires?: string;
 }

@@ -9,7 +9,7 @@ export const poData: JSONDocument = {
     },
     poste: 'Informaticien/Développeur',
     naissance: '1996/01/29',
-    ville: 'Le Versoud',
+    localisation: 'Le Versoud',
     permis: true,
     liens: [
       {
@@ -68,6 +68,15 @@ export const poData: JSONDocument = {
         categorie: 'Langages',
         domaines: [
           {
+            domaine: 'Web',
+            competences: [
+              'HTML',
+              'CSS',
+              'JavaScript',
+              'PHP'
+            ]
+          },
+          {
             domaine: 'Soft',
             competences: [
               'C',
@@ -81,17 +90,8 @@ export const poData: JSONDocument = {
             competences: [
               'Python',
               'Lua',
-              'Bash',
+              'Shell',
               'Batch'
-            ]
-          },
-          {
-            domaine: 'Web',
-            competences: [
-              'HTML',
-              'CSS',
-              'JavaScript',
-              'PHP'
             ]
           }
         ]
@@ -187,7 +187,7 @@ export const poData: JSONDocument = {
     {
       nom: 'HTML',
       version: 5,
-      description: 'Langage de balisage permettant de structurer une page web.',
+      description: 'Langage de balisage permettant de représenter une page web.',
       image: {
         url: 'assets/html.png'
       }
@@ -195,14 +195,14 @@ export const poData: JSONDocument = {
     {
       nom: 'CSS',
       version: 3,
-      description: 'Langage contextuel permettant de styliser une page web.',
+      description: 'Langage permettant de décrire la présentation des pages web.',
       image: {
         url: 'assets/css.png'
       }
     },
     {
       nom: 'JavaScript',
-      description: 'Langage de script permettant de manipuler une page web et de programmer des comportements.',
+      description: 'Langage de programmation de script utilisé dans les pages web, mais aussi sur les serveurs (exemple: Node.js).',
       image: {
         url: 'assets/js.png'
       }
@@ -218,7 +218,7 @@ export const poData: JSONDocument = {
     {
       nom: 'AngularJS',
       version: 1,
-      description: 'Framework pour le développement d\'applications web Single Page Application.',
+      description: 'Framework JavaScript pour le développement d\'applications web Single Page Application.',
       image: {
         url: 'assets/angular.png'
       }
@@ -226,7 +226,7 @@ export const poData: JSONDocument = {
     {
       nom: 'Bootstrap',
       version: 4,
-      description: 'Framework pour le développement d\'applications web responsive.',
+      description: 'Framework contenant des outils pour le design d\'applications/sites web responsive.',
       image: {
         url: 'assets/bootstrap.png'
       }
@@ -234,7 +234,7 @@ export const poData: JSONDocument = {
     {
       nom: 'PHP',
       version: 7,
-      description: 'Langage côté serveur.',
+      description: 'Langage de programmation, principalement utilisé pour produire des pages web côté serveur.',
       image: {
         url: 'assets/php.png'
       }
@@ -242,7 +242,7 @@ export const poData: JSONDocument = {
     {
       nom: 'Java',
       version: 8,
-      description: 'Langage de programmation multi-plateforme par Oracle.',
+      description: 'Langage de programmation orienté objet et multi-plateforme par Oracle.',
       image: {
         url: 'assets/java.png'
       }
@@ -250,7 +250,7 @@ export const poData: JSONDocument = {
     {
       nom: 'JavaFX',
       version: 8,
-      description: 'Framework pour créer des interfaces avec Java.'
+      description: 'Framework pour créer des interfaces en Java.'
     },
     {
       nom: 'Google Drive',
@@ -262,7 +262,7 @@ export const poData: JSONDocument = {
     {
       nom: 'Python',
       version: 3.6,
-      description: 'Langage de script interprété',
+      description: 'Langage de programmation multi-plateforme, souvent utilisé comme langage de script.',
       image: {
         url: 'assets/python.png'
       }
@@ -270,7 +270,7 @@ export const poData: JSONDocument = {
     {
       nom: 'Node.js',
       version: 10,
-      description: 'Plateforme d\'exécution de JavaScript native.',
+      description: 'Plateforme logicielle en JavaScript orientée vers les applications réseau.',
       image: {
         url: 'assets/nodejs.png'
       }
@@ -278,7 +278,7 @@ export const poData: JSONDocument = {
     {
       nom: 'Android',
       version: 9,
-      description: 'OS utilisé dans plus de 50% des smartphones.',
+      description: 'Système d\'exploitation mobile basé sur Linux et développé par Google.',
       image: {
         url: 'assets/android.png'
       }
@@ -294,8 +294,7 @@ export const poData: JSONDocument = {
           debut: '2018/09',
           fin: '2019/09'
         },
-        technologies: ['Java', 'HTML', 'CSS', 'JavaScript', 'Angular', 'Node.js', 'Android'],
-        description: ``
+        technologies: ['Java', 'HTML', 'CSS', 'JavaScript', 'Angular', 'Node.js', 'Android', 'iOS']
       },
       {
         entreprise: 'LIG',
@@ -307,11 +306,11 @@ export const poData: JSONDocument = {
         },
         technologies: ['HTML', 'CSS', 'JavaScript', 'Angular'],
         description: `
-          Stage de recherche effectué au Laboratoire d\'informatique de Grenoble, dans l'équipe IIHM.
-          * Création d'une application web pour visualiser un environnement virtuel correspondant à un batiment
+          Stage de recherche effectué au Laboratoire d\'informatique de Grenoble, dans l'équipe __IIHM__.\n
+          * Création d'une __application web__ pour visualiser un environnement virtuel correspondant à un bâtiment
           en vue de tester un nouveau moteur pour la domotique.
-          * Tests sur ce moteur pour s'assurer de son bon fonctionnement.
-          * Création d'une application web pour éditer un programme EUD qui est ensuite utilisé dans ce moteur.
+          * __Tests__ sur ce moteur pour s'assurer de son bon fonctionnement.
+          * Création d'une __application web__ pour éditer un programme EUD qui est ensuite utilisé dans ce moteur.
         `
       },
       {
@@ -324,8 +323,8 @@ export const poData: JSONDocument = {
         },
         technologies: ['HTML', 'CSS', 'JavaScript', 'AngularJS'],
         description: `
-          Stage de fin de DUT effectué au Laboratoire d\'informatique de Grenoble, dans l'équipe MRIM.
-          Création d'une application web AngularJS pour annoter des média comme les images, les vidéo ou l'audio
+          Stage de fin de DUT effectué au Laboratoire d\'informatique de Grenoble, dans l'équipe __MRIM__.\n
+          Création d'une __application web AngularJS__ pour annoter des média comme les images, les vidéo ou l'audio
           en vue d'une utilisation pour faire tourner du deep learning sur des oeuvres de musée.
         `
       }

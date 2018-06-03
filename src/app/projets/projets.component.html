@@ -42,7 +42,7 @@
             <img *ngFor="let i of p.images" [src]="i.url" alt="Image" (click)="openPhotoZoom(i)">
           </div>
           <div class="liens">
-            <button *ngFor="let b of p.liens" (click)="open(b.url)" class="btn btn-primary waves-light" mdbWavesEffect>{{b.nom}}</button>
+            <a *ngFor="let b of p.liens" [href]="b.url" target="_blank" class="btn btn-primary waves-light" mdbWavesEffect>{{b.nom}}</a>
           </div>
         </div>
       </div>
