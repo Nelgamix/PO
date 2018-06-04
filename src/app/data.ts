@@ -49,18 +49,11 @@ export const poData: JSONDocument = {
       `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue sem arcu, vitae elementum nulla mattis in.
         Pellentesque vel est sit amet tellus dignissim mattis sit amet tristique massa. Aliquam iaculis quam vitae pulvinar porttitor.
-        In dictum tortor ut viverra rutrum. Sed gravida sollicitudin imperdiet. Praesent sodales odio nec dapibus suscipit. Nulla facilisi.
-        Maecenas ullamcorper augue in est ullamcorper, vitae ultricies sem fermentum. Proin aliquam mattis egestas.
-        Maecenas non nisl ut diam laoreet pretium condimentum vitae erat. Pellentesque scelerisque massa sit amet iaculis condimentum.
+        In dictum tortor ut viverra rutrum. Sed gravida sollicitudin imperdiet. Praesent sodales odio nec dapibus suscipit.
       `,
       `
         Phasellus fermentum viverra massa, vitae commodo risus convallis a. Vestibulum faucibus scelerisque magna a pellentesque.
         Nam hendrerit augue ac facilisis bibendum. Vivamus neque purus, mattis sed quam sed, mollis vehicula ligula.
-        Pellentesque sodales, enim sit amet consectetur efficitur, ex purus dapibus dui, ac mattis tellus turpis ut nunc.
-        Donec cursus elit ut elementum tincidunt. Vivamus id nisl nec libero laoreet facilisis.
-        Phasellus a justo sit amet neque dignissim porttitor ut ac sapien. Morbi nec neque a risus vehicula laoreet.
-        Sed rutrum rutrum molestie. Aenean tincidunt eros vel enim varius maximus. Nullam at accumsan tellus. Sed eu accumsan felis.
-        Proin vestibulum erat risus. Donec porta quis velit interdum aliquet. Morbi sagittis sit amet quam id ultricies.
       `
     ],
     competences: [
@@ -306,7 +299,7 @@ export const poData: JSONDocument = {
         },
         technologies: ['HTML', 'CSS', 'JavaScript', 'Angular'],
         description: `
-          Stage de recherche effectué au Laboratoire d\'informatique de Grenoble, dans l'équipe __IIHM__.\n
+          Stage de recherche effectué au Laboratoire d\'Informatique de Grenoble, dans l'équipe __IIHM__.\n
           * Création d'une __application web__ pour visualiser un environnement virtuel correspondant à un bâtiment
           en vue de tester un nouveau moteur pour la domotique.
           * __Tests__ sur ce moteur pour s'assurer de son bon fonctionnement.
@@ -323,7 +316,7 @@ export const poData: JSONDocument = {
         },
         technologies: ['HTML', 'CSS', 'JavaScript', 'AngularJS'],
         description: `
-          Stage de fin de DUT effectué au Laboratoire d\'informatique de Grenoble, dans l'équipe __MRIM__.\n
+          Stage de fin de DUT effectué au Laboratoire d\'Informatique de Grenoble, dans l'équipe __MRIM__.\n
           Création d'une __application web AngularJS__ pour annoter des média comme les images, les vidéo ou l'audio
           en vue d'une utilisation pour faire tourner du deep learning sur des oeuvres de musée.
         `
@@ -440,12 +433,12 @@ export const poData: JSONDocument = {
           }
         ],
         description: `
-          Développement d'un jeu à partir des règles d'un jeu de plateau, en Java et à l'aide de JavaFX pour l'interface.
+          Développement d'un jeu à partir des règles d'un __jeu de plateau__, en Java et à l'aide de JavaFX pour l'interface.\n
           Projet réalisé à 5 et comportant les éléments suivants:
-          * Sauvegardes de la partie
-          * Undo/redo
-          * IA facile, moyen, difficile
-          * Jeu en réseau à 2
+          * __Sauvegardes__ de la partie
+          * __Undo/redo__
+          * __IA__ facile, moyen, difficile
+          * __Jeu en réseau__ à 2
         `
       },
       {
@@ -464,13 +457,13 @@ export const poData: JSONDocument = {
         ],
         description: `
           Script Python permettant de réaliser différentes actions sur un fichier de sous-titres:
-          * Décaler les sous-titres
-          * Renommer tous les fichiers de sous-titre détectés dans un dossier en faisant une reconnaissance
-          automatique avec les fichiers vidéos trouvés
+          * __Décaler__ les sous-titres
+          * __Renommer__ tous les fichiers de sous-titre détectés dans un dossier en faisant une reconnaissance
+          automatique avec les fichiers vidéos trouvés\n
           Certaines fonctionnalitées utiles ont été implantées:
-          * Détection automatique des fichiers de sous-titre et des fichiers vidéo
-          * Fichier de configuration si la détection échoue
-          * Backup automatique
+          * __Détection automatique__ des fichiers de sous-titre et des fichiers vidéo
+          * __Fichier de configuration__ si la détection échoue
+          * __Backup__ automatique
         `
       }
     ]

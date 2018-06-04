@@ -6,31 +6,40 @@ h3 {
 #presentation {
   padding-top: 10px;
   padding-bottom: 10px;
-  /*background-color: #00000015;*/
   background: linear-gradient(to bottom, #aaa, #ccc);
-  box-shadow: 0 4px 8px -4px grey;
-  border-bottom: 4px solid red;
+
+  #logo {
+    border-radius: 50%;
+    height: 150px;
+    margin-right: 40px;
+    margin-left: 20px;
+    box-shadow: 0 0 12px 0 #eee;
+  }
+
+  #cv {
+    button {
+      width: 100%;
+      margin: auto;
+      margin-bottom: 10px;
+      padding: 4px;
+      font-size: 20px;
+    }
+  }
 }
 
-/* Logo */
-#logo {
-  border-radius: 50%;
-  height: 150px;
-  margin-right: 40px;
-}
+#presentation.dark {
+  background: linear-gradient(to right, #444, #666);
+  color: #eee;
 
-/* CV */
-#cv button {
-  width: 100%;
-  margin: auto;
-  padding: 4px;
-  font-size: 24px;
-  margin-bottom: 10px;
+  #cv {
+    /*visibility: hidden;*/
+  }
 }
 
 /* DLinks */
 #dlinks .dlink {
   margin-left: 10px;
+  padding-top: 1px;
 
   &:first-of-type {
     margin-left: 0;
@@ -49,7 +58,7 @@ h3 {
   font-weight: bold;
 
   img {
-    height: 26px;
+    height: 24px;
     border-radius: 50%;
     margin-right: 5px;
   }
@@ -80,13 +89,14 @@ h3 {
 
 /* Catégorie */
 .categorie {
-  padding-top: 12px;
+  margin-top: 18px;
+  margin-bottom: 18px;
   padding-bottom: 12px;
-  background-color: #9999990f;
+  background-color: #99999920;
 
   .titre {
     /*background-color: #9999991f;*/
-    background: linear-gradient(to right, #bbb, #ddd);
+    background: linear-gradient(to right, #ccc, #ddd);
   }
 
   .row.content {
@@ -108,7 +118,7 @@ h3 {
 
   .description {
     font-weight: 900;
-    color: darkslateblue;
+    /*color: darkslateblue;*/
     text-transform: uppercase;
   }
 }
@@ -116,9 +126,27 @@ h3 {
 /* Formation */
 #formation table {
   margin-bottom: 0;
+
+  th {
+    font-size: 1em;
+  }
+
+  td {
+    font-size: 1em;
+  }
+
+  tr td:nth-of-type(1) {
+    font-weight: bold;
+  }
 }
 
 /* Centres intérêts */
-#centresinterets h5 {
-  margin-top: 5px;
+#centresinterets {
+  h5 {
+    margin-top: 5px;
+  }
+
+  .ci-cat {
+    margin-bottom: 15px;
+  }
 }

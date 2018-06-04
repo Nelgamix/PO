@@ -1,4 +1,4 @@
-<div class="row" id="presentation">
+<div class="row dark z-depth-1" id="presentation">
   <div class="col-auto" *ngIf="document.infos.image">
     <img [src]="document.infos.image.url" alt="Logo" id="logo">
   </div>
@@ -24,8 +24,8 @@
   <div class="col-2" id="cv">
     <div class="row">
       <div class="col">
-        <button type="button" class="btn btn-success" *ngIf="document.infos.searchLien('CV'); let lien" (click)="open(lien.url)">CV</button>
-        <button type="button" class="btn btn-success" *ngIf="document.infos.searchLien('Mail'); let lien" (click)="open(lien.url)">EMAIL</button>
+        <button type="button" class="btn btn-blue-grey" *ngIf="document.infos.searchLien('CV'); let lien" (click)="open(lien.url)">CV</button>
+        <button type="button" class="btn btn-blue-grey" *ngIf="document.infos.searchLien('Mail'); let lien" (click)="open(lien.url)">EMAIL</button>
       </div>
     </div>
   </div>
@@ -118,7 +118,7 @@
     </div>
     <div class="row content">
       <div class="col">
-        <div *ngFor="let c of document.infos.ci">
+        <div *ngFor="let c of document.infos.ci" class="ci-cat">
           <h5>{{c.nom}}</h5>
           <div>
             <ng-container *ngFor="let cn of c.items; let i = index">
