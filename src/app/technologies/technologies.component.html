@@ -1,0 +1,14 @@
+<div class="wrapper row">
+  <div class="col">
+    <div class="technologie row" *ngFor="let t of document.technologies">
+      <div class="col-2">
+        <img [src]="t.image.url" alt="Logo {{t.nom}}">
+      </div>
+      <div class="col">
+        <h4>{{getTechnoNom(t)}}</h4>
+        <div>{{getTechnoDescription(t)}}</div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>

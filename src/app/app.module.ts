@@ -14,6 +14,7 @@ import { TechnologieDescriptionComponent } from './technologie-description/techn
 import { FilterProjetPipe } from './filter-projet.pipe';
 import {FormsModule} from '@angular/forms';
 import { FilterExperiencePipe } from './filter-experience.pipe';
+import { TechnologiesComponent } from './technologies/technologies.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FilterExperiencePipe } from './filter-experience.pipe';
     ProjetsComponent,
     TechnologieDescriptionComponent,
     FilterProjetPipe,
-    FilterExperiencePipe
+    FilterExperiencePipe,
+    TechnologiesComponent
   ],
   imports: [
     AppRoutingModule,
